@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "PWA-Tarea",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

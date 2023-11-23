@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tarea-pwa-64913": {
+      "hosting": {
+        "PWA-Tarea": [
+          "tarea-pwa-64913"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tarea-pwa-64913"
+  }
+}

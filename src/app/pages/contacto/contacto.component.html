@@ -1,0 +1,28 @@
+
+
+<div style="text-align: center">
+    <p>Creacion de notas</p>
+  
+<form>
+    <label for="txtNuNota">N* de nota: </label>
+    <br>
+    <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id"/>
+    <br>
+    <br>
+    <label for="txtNombre">Nombre: </label>
+    <br>
+    <input id="txtNombre" name="txtNombre" [(ngModel)]="persona.name"/>
+    <br>
+    <br>
+    <label for="txtNota">Nota: </label>
+    <br>
+    <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota"/>
+    <br>
+    
+</form>
+<br>
+<button (click)="savePersona()">Guardar</button> - <button (click)="goListado()">Listado</button>
+</div>
+
+
+

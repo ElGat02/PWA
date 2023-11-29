@@ -1,22 +1,48 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { MenuComponent } from './menu/menu.component';
+import { FormsModule } from '@angular/forms';
+import { ListaContactosComponent } from './pages/lista-contactos/lista-contactos.component';
+
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environments';
+import { FIREBASE_APP_NAME, FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ViewContactoComponent } from './pages/view-contacto/view-contacto.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactoComponent,
+    MenuComponent,
+    ListaContactosComponent,
+    ViewContactoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"tarea-pwa-64913","appId":"1:190842821617:web:76a23b1a04c6842e6d4250","storageBucket":"tarea-pwa-64913.appspot.com","apiKey":"AIzaSyDw139SMT11JaRUJOuLcdIq02pfIPclZTE","authDomain":"tarea-pwa-64913.firebaseapp.com","messagingSenderId":"190842821617"})),
-    provideFirestore(() => getFirestore())
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    AngularFirestoreModule.enablePersistence(),
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

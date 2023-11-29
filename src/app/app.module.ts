@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from '@angular/forms';
-import { ListaContactosComponent } from './pages/lista-contactos/lista-contactos.component';
+import { ListaContactosComponent } from './pages/lista/lista-contactos.component';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';

@@ -2,9 +2,14 @@
   h1 {
     color: rgb(0, 0, 0);
     font-family: Arial;
+    margin-top: 1px;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: bold;
   }
 
   body {
+    font-family: Arial, sans-serif;
     background-color: rgb(181, 183, 205);
   }
   
@@ -12,5 +17,10 @@
     background-color: rgb(97, 80, 102)
   }
 
+  app-menu {
+    margin-bottom: 50px;
+  }
+  
+ 
 
   

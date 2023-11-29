@@ -1,27 +1,26 @@
 
 
 <div style="text-align: center">
-    <p>Creacion de notas</p>
-  
-<form>
-    <label for="txtNuNota">N* de nota: </label>
-    <br>
-    <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id"/>
-    <br>
-    <br>
-    <label for="txtNombre">Nombre: </label>
-    <br>
-    <input id="txtNombre" name="txtNombre" [(ngModel)]="persona.name"/>
-    <br>
-    <br>
-    <label for="txtNota">Nota: </label>
-    <br>
-    <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota"/>
-    <br>
-    
-</form>
+    <head>
+        <title>Creación de notas</title>
+      </head>
+      <body>
+        <form>
+          <label for="txtNuNota">N* de nota:</label>
+          <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id" type="text">
+          <label for="txtNombre">Nombre:</label>
+          <input id="txtNombre" name="txtNombre" [(ngModel)]="persona.name" type="text">
+          <label for="txtNota">Nota:</label>
+          <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota" type="text">
+          <label for="txtFecha">Fecha:</label>
+          <input id="txtFecha" name="txtFecha" [(ngModel)]="persona.fecha" type="date">
+          <button (click)="savePersona()">Guardar</button> - <button (click)="goListado()">Listado</button>
+        </form>
+      </body>
+          
+      
+      <br>
 <br>
-<button (click)="savePersona()">Guardar</button> - <button (click)="goListado()">Listado</button>
 </div>
 
 

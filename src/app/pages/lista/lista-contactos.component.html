@@ -1,0 +1,24 @@
+<head>
+    <title>Lista de las notas</title>
+
+</head>
+<body>
+  <div style="text-align: center">
+    <p>Lista de las notas</p>
+    <p>Nota nueva</p>
+  </div>
+  <ul>
+    <li *ngFor="let contacto of contactos">
+        <a (click)="goEditar(contacto)">{{contacto.name}}</a>
+    </li>
+  </ul>
+  
+  <div style="text-align: center">
+    <ul>
+        <li *ngFor="let contacto of listaContactos | async">
+            <a (click)="goEditar(contacto)"></a>
+            <a routerLink="/paginas/contacto/{{contacto.uid}}">{{contacto.name}}</a>
+        </li>
+    </ul>
+  </div>
+</body>

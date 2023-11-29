@@ -25,11 +25,25 @@ export class ContactosFirebaseService {
     return this.contactosRef.valueChanges()
   }
 
+  eliminar(uid: string) {
+    this.db.doc(this.path+'/'+uid).delete()
+      .then(() => {
+        console.log('Campo eliminado correctamente');
+      })
+      .catch(error => {
+        console.error('Error al eliminar campo:', error);
+      });
+  }
+
   save(persona: Persona){
+    if(persona.uid){
+      return this.contactosRef.doc(persona.uid).update(Object.assign({}, persona))
+    }else{
     const uid = this.db.createId()
     persona.uid = uid
     console.log('persona', persona)
     return this.contactosRef.doc(uid).set(Object.assign({}, persona))
+    }
   }
 
   getPersona(uid: string){

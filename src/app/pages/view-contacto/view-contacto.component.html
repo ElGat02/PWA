@@ -1,21 +1,23 @@
-<p>contacto works!</p>
-
-
-<form>
-    <label for="txtNuNota">Numero de nota: </label>
-    <br>
-    {{persona.id}} {{persona.dni}}
-    <br>
-    <label for="txtCedula">Nombre: </label>
-    <br>
-    {{persona.name}}
-    <br>
-    <label for="txtNota">Nota</label>
-    <br>
-    {{persona.nota}}
-    <br>
-
-</form>
-
-<button (click)="goAcerca()">Acerca de</button>-<button (click)="goListado()">Listado</button>
-
+<head>
+    <title>Viendo la nota: {{persona.name}}</title>
+</head>
+<body>
+  <div style="text-align: center">
+    <p>Viendo la nota: {{persona.name}}</p>
+  </div>
+  <form>
+    <label for="txtNuNota">Numero de nota:</label>
+    <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id" type="text">
+    <label for="txtCedula">Nombre:</label>
+    <input id="txtCedula" name="txtCedula" [(ngModel)]="persona.name" type="text">
+    <label for="txtNota">Nota:</label>
+    <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota" type="text">
+    <label for="txtFecha">Fecha:</label>
+    <input id="txtFecha" name="txtFecha" [(ngModel)]="persona.fecha" type="date">
+    <div style="text-align: center">
+        <button (click)="editar(persona)">editar</button>-<button (click)="goListado()">Listado</button>
+      </div>
+    
+    
+  </form>
+</body>

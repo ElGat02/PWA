@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Persona } from 'src/app/domain/persona';
 import { ContactosFirebaseService } from 'src/app/services/contactos-firebase.service';
 
@@ -13,6 +13,9 @@ export class ViewContactoComponent {
   persona: Persona = new Persona();
 
   constructor(private router: Router, 
+
+    
+    
       private route: ActivatedRoute,
       private contactosFirebaseService: ContactosFirebaseService){
 
@@ -24,6 +27,7 @@ export class ViewContactoComponent {
         })
 
   }
+  
 
   loadPersona(uid: string) {
     this.contactosFirebaseService.getPersona(uid).subscribe(data => {
@@ -32,13 +36,20 @@ export class ViewContactoComponent {
     })
   }
 
-  goAcerca(){
-    console.log("llamando acerca de ", this.persona)
-    this.router.navigate(['paginas/acerca'])
+  editar(contacto: Persona ){
+    console.log("editando", contacto)
+
+    let params: NavigationExtras = {
+      queryParams: {
+        contacto: contacto
+      }
+    }
+
+    this.router.navigate(['paginas/lista'], params)
   }
 
   goListado(){
-    this.router.navigate(['paginas/listado-contactos'])
+    this.router.navigate(['paginas/lista'])
   }
 }
 

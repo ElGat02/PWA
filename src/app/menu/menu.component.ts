@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   paginas = [
-    {titulo: 'Nombre', path: 'paginas/contacto'},
-    {titulo: 'Listado de Notas', path: 'paginas/listado-contactos'},
+    {titulo: 'Crear', path: 'paginas/contacto'},
+    
+    {titulo: 'Listado de Notas', path: 'paginas/lista'},
   ]
 }

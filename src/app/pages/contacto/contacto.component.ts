@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validator } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/domain/persona';
 import { ContactosFirebaseService } from 'src/app/services/contactos-firebase.service';
@@ -15,19 +16,30 @@ export class ContactoComponent {
 
   persona: Persona = new Persona();
 
-  constructor(private router: Router, 
-    private contactoServices: ContactosService,
-    private contactoFirebaseService: ContactosFirebaseService){ 
+  constructor(private router: Router, private contactoServices: ContactosService, private contactoFirebaseService: ContactosFirebaseService,
+    
+    
+    ){ 
+      
 
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
       if(params){
         console.log(params)
-        this.persona = params['contacto']
+        this.persona = params['Nota']
 
       }
   }
 
   savePersona(){
+    this.contactoServices.addContacto(this.persona)
+    
+    console.log('Notas', this.contactoServices.getContactos())
+  
+    this.contactoFirebaseService.save(this.persona)
+    this.persona = new Persona();
+  }
+
+  EliminarNota(){
     this.contactoServices.addContacto(this.persona)
     
     console.log('contactos', this.contactoServices.getContactos())

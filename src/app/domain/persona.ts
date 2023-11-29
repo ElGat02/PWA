@@ -9,4 +9,6 @@ export class Persona {
     name?: string;
 
     nota?: String;
+
+    fecha?: Date;
 }

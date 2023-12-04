@@ -40,33 +40,19 @@ export class ViewContactoComponent {
   Editar(){
     
   
-    this.contactosFirebaseService.save(this.persona)
+    this.contactosFirebaseService.edit(this.persona)
     this.persona = new Persona();
-  }
 
-  Eliminar(){
-    
-  
-    this.contactosFirebaseService.savee(this.persona)
-    this.persona = new Persona();
+    this.router.navigate(['paginas/lista'])
   }
 
 
-
-
-  editarr(contacto: Persona ){
-    console.log("editando", contacto)
-
-    let params: NavigationExtras = {
-      queryParams: {
-        contacto: contacto
-      }
-    }
-
-    
-
-    this.router.navigate(['paginas/lista'], params)
+  goDelete(Persona : Persona){
+    this.contactosFirebaseService.delete(this.persona.uid)
+    this.router.navigate(['paginas/lista'])
   }
+
+
 
 
   goListado(){

@@ -39,6 +39,8 @@ export class ContactoComponent {
     this.persona = new Persona();
   }
 
+  
+
  
   goAcerca(){
     console.log("llamando acerca de ", this.persona)

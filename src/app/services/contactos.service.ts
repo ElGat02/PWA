@@ -14,12 +14,20 @@ export class ContactosService {
     this.contatos.push(persona)
   }
 
-  deleteContacto(persona: Persona) {
+  eli(persona: Persona){
+    this.contatos.indexOf(persona)
+  }
+
+  eliminar(persona: Persona) {
     const index = this.contatos.indexOf(persona);
-    if (index > -1) {
+    if (index !== -1) {
       this.contatos.splice(index, 1);
     }
   }
+
+  
+
+  
 
   getContactos(){
     return this.contatos

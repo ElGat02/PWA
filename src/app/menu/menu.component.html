@@ -1,8 +1,6 @@
-<ul>
-    
-    <li *ngFor="let link of paginas">
-        
-        <a href="#" [routerLink]="link.path">{{link.titulo}}</a>
+<ul class="animated-list">
+    <li *ngFor="let link of paginas" class="animated-list-item">
+      <a href="#" [routerLink]="link.path">{{link.titulo}}</a>
     </li>
-</ul>
+  </ul>
 

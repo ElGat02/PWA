@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Persona } from 'src/app/domain/persona';
 import { ContactosFirebaseService } from 'src/app/services/contactos-firebase.service';
+import { ContactosService } from 'src/app/services/contactos.service';
 
 @Component({
   selector: 'app-view-contacto',
@@ -12,7 +13,7 @@ export class ViewContactoComponent {
 
   persona: Persona = new Persona();
 
-  constructor(private router: Router, 
+  constructor(private router: Router,private contactoServices: ContactosService,
 
     
     
@@ -36,7 +37,24 @@ export class ViewContactoComponent {
     })
   }
 
-  editar(contacto: Persona ){
+  Editar(){
+    
+  
+    this.contactosFirebaseService.save(this.persona)
+    this.persona = new Persona();
+  }
+
+  Eliminar(){
+    
+  
+    this.contactosFirebaseService.savee(this.persona)
+    this.persona = new Persona();
+  }
+
+
+
+
+  editarr(contacto: Persona ){
     console.log("editando", contacto)
 
     let params: NavigationExtras = {
@@ -45,8 +63,11 @@ export class ViewContactoComponent {
       }
     }
 
+    
+
     this.router.navigate(['paginas/lista'], params)
   }
+
 
   goListado(){
     this.router.navigate(['paginas/lista'])

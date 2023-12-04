@@ -39,21 +39,13 @@ export class ContactoComponent {
     this.persona = new Persona();
   }
 
-  EliminarNota(){
-    this.contactoServices.addContacto(this.persona)
-    
-    console.log('contactos', this.contactoServices.getContactos())
-  
-    this.contactoFirebaseService.save(this.persona)
-    this.persona = new Persona();
-  }
-
+ 
   goAcerca(){
     console.log("llamando acerca de ", this.persona)
     this.router.navigate(['paginas/contacto'])
   }
 
   goListado(){
-    this.router.navigate(['paginas/listado-contactos'])
+    this.router.navigate(['paginas/lista'])
   }
 }

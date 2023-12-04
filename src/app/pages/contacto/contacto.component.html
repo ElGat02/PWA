@@ -7,13 +7,13 @@
       <body>
         <form>
           <label for="txtNuNota">N* de nota:</label>
-          <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id" type="text">
+          <input id="txtNuNota" name="txtNuNota" [(ngModel)]="persona.id" type="text" required>
           <label for="txtNombre">Nombre:</label>
-          <input id="txtNombre" name="txtNombre" [(ngModel)]="persona.name" type="text">
+          <input id="txtNombre" name="txtNombre" [(ngModel)]="persona.name" type="text" required>
           <label for="txtNota">Nota:</label>
-          <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota" type="text">
+          <input id="txtNota" name="txtNota" [(ngModel)]="persona.nota" type="text" required>
           <label for="txtFecha">Fecha:</label>
-          <input id="txtFecha" name="txtFecha" [(ngModel)]="persona.fecha" type="date">
+          <input id="txtFecha" name="txtFecha" [(ngModel)]="persona.fecha" type="date" required>
           <button (click)="savePersona()">Guardar</button> - <button (click)="goListado()">Listado</button>
         </form>
       </body>
